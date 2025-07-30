@@ -33,6 +33,6 @@ export class AuthController {
   @UseGuards(AuthGuard)
   @Get('verify')
   verifyToken(@User() user: CurrentUser, @Token() token: string) {
-    return this.client.send('auth.verify.user', {})
+    return { user, token }
   }
 }
